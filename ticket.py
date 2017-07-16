@@ -27,7 +27,7 @@ def do(opcode, lvl):
     elif op == 2:  # div
         if b == 0: return None
         if a % b: return None
-        x = a / b
+        x = a // b
     elif op == 3:  # plus
         x = a + b
     elif op == 4:  # minus
@@ -49,7 +49,7 @@ def do_expression(l,lvl):
         if t[0] % 5 in [1, 2]:
             prior_need = True
             break
-        if t[0] / 5 == p: break
+        if t[0] // 5 == p: break
 
     s_op = s_ops[op]
     if s_op == '.': s_op = ''
@@ -62,7 +62,7 @@ def do_expression(l,lvl):
 
 def op_str(opcode):
     if opcode<0: return '=>'
-    place = opcode/5 + 1
+    place = opcode // 5 + 1
     op = s_ops[opcode % 5]
     return "%d%c" % (place,op)
 
